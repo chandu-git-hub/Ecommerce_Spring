@@ -3,19 +3,19 @@ package com.example.ecommercespring.gateway;
 import com.example.ecommercespring.dto.CategoryDTO;
 import com.example.ecommercespring.dto.CategoryResponseDTO;
 import com.example.ecommercespring.gateway.api.ICategoryApi;
+import com.example.ecommercespring.mappers.GetAllCategoriesMapper;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.List;
 
 @Component
-public class CategoryGateway implements ICategoryGateway{
+public class FakeStoreCategoryGateway implements ICategoryGateway{
 
 
-    ICategoryApi categoryApi;
+    private final ICategoryApi categoryApi;
 
-    CategoryGateway(ICategoryApi categoryApi){
+    FakeStoreCategoryGateway(ICategoryApi categoryApi){
         this.categoryApi=categoryApi;
     }
 
@@ -26,7 +26,7 @@ public class CategoryGateway implements ICategoryGateway{
             throw new IOException("Failed to fetch categories from FakeStore API");
         }
 
-        return response.getCategories().stream().map(Category->CategoryDTO.builder().name(Category).build()).toList();
+        return GetAllCategoriesMapper.CategoryResponseToCategoryMapper(response);
 
 
     }
