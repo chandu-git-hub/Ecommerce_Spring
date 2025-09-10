@@ -1,0 +1,1 @@
+ALTER table category add unique (name);

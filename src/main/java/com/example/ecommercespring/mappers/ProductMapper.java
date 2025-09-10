@@ -2,6 +2,7 @@ package com.example.ecommercespring.mappers;
 
 import com.example.ecommercespring.dto.ProductDTO;
 import com.example.ecommercespring.dto.ProductResponseDTO;
+import com.example.ecommercespring.entity.Category;
 import com.example.ecommercespring.entity.Product;
 
 public class ProductMapper {

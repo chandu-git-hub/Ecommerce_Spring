@@ -22,23 +22,23 @@ public class BaseEntity {
 
     @CreatedDate
     @Column(nullable = false,updatable = false)
-    private Instant createdAt;
+    private Instant created_at;
 
     @LastModifiedDate
     @Column(nullable = false)
-    private Instant updatedAt;
+    private Instant updated_at;
 
     @PrePersist
     public void onCreate(){
         Instant now=Instant.now();
-        createdAt=now;
-        updatedAt=now;
+        created_at=now;
+        updated_at=now;
     }
 
     @PreUpdate
     public void onUpdate(){
         Instant now=Instant.now();
-        updatedAt=now;
+        updated_at=now;
     }
 
 }
